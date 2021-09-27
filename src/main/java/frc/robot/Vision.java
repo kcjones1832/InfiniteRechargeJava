@@ -46,6 +46,9 @@ public class Vision {
         SmartDashboard.putNumber("ta", targetArea);
         SmartDashboard.putNumber("ts", targetSkew);
 
+        table.getEntry("pipeline").setNumber(3);
+        //table->PutNumber("pipeline", 3);
+
         if (stick.getRawButtonPressed(4)) {
             imageSwitch = !imageSwitch;
         }
