@@ -6,40 +6,41 @@ import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.XboxController;
+//import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.I2C.Port;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class Drive {
-    CANSparkMax driveMotorLeft = new CANSparkMax(2, MotorType.kBrushless);
-    CANSparkMax driveMotorRight = new CANSparkMax(3, MotorType.kBrushless);
+    private CANSparkMax driveMotorLeft = new CANSparkMax(2, MotorType.kBrushless);
+    private CANSparkMax driveMotorRight = new CANSparkMax(3, MotorType.kBrushless);
 
-    CANSparkMax slaveMotorLeft1 = new CANSparkMax(4, MotorType.kBrushless);
-    CANSparkMax slaveMotorLeft2 = new CANSparkMax(5, MotorType.kBrushless);
-    CANSparkMax slaveMotorRight1 = new CANSparkMax(6, MotorType.kBrushless);
-    CANSparkMax slaveMotorRight2 = new CANSparkMax(7, MotorType.kBrushless);
+    private CANSparkMax slaveMotorLeft1 = new CANSparkMax(4, MotorType.kBrushless);
+    private CANSparkMax slaveMotorLeft2 = new CANSparkMax(5, MotorType.kBrushless);
+    private CANSparkMax slaveMotorRight1 = new CANSparkMax(6, MotorType.kBrushless);
+    private CANSparkMax slaveMotorRight2 = new CANSparkMax(7, MotorType.kBrushless);
 
-    DifferentialDrive robotDrive = new DifferentialDrive(driveMotorLeft, driveMotorRight);
-    Joystick stick = new Joystick(0);
-    XboxController xbox = new XboxController(1);
+    private DifferentialDrive robotDrive = new DifferentialDrive(driveMotorLeft, driveMotorRight);
+    private Joystick stick = new Joystick(0);
+    //private XboxController xbox = new XboxController(1); not currently used
 
-    AHRS gyro;
+    private AHRS gyro;
 
-    double xStickValue; 
-    double yStickValue;
+    private double xStickValue; 
+    private double yStickValue;
 
-    double revNeed;
-    double offset;
-    double leftCurrentPos;
-    double rightCurrentPos;
-    double avgPosition;
-    double power;
-    double leftEncLast;
-    double rightEncLast;
-    double gyroLast;
-    double turnCorrection;
-    double turnOffset;
+    //for auto later
+    /*private double revNeed;
+    private double offset;
+    private double leftCurrentPos;
+    private double rightCurrentPos;
+    private double avgPosition;
+    private double power;
+    private double leftEncLast;
+    private double rightEncLast;
+    private double gyroLast;
+    private double turnCorrection;
+    private double turnOffset;*/
 
     double currentAngle;
 

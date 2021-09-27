@@ -10,18 +10,16 @@ import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class Shooter {
-    WPI_TalonSRX shootMotor = new WPI_TalonSRX(12);
-    WPI_TalonSRX feederMotor = new WPI_TalonSRX(13);
-    WPI_TalonSRX hoodMotor = new WPI_TalonSRX(14);
+    private WPI_TalonSRX shootMotor = new WPI_TalonSRX(12);
+    private WPI_TalonSRX feederMotor = new WPI_TalonSRX(13);
+    private WPI_TalonSRX hoodMotor = new WPI_TalonSRX(14);
 
-    XboxController xbox = new XboxController(1);
+    private XboxController xbox = new XboxController(1);
 
-    AnalogPotentiometer hoodPotent = new AnalogPotentiometer(1, 1000, 0);
+    private AnalogPotentiometer hoodPotent = new AnalogPotentiometer(1, 1000, 0);
 
-    double velocityOut;
-    double velocityAct;
-    int hoodPosition;
-    double velocityWant;
+    private int hoodPosition;
+    private double velocityWant;
 
     public Shooter() {
         shootMotor.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, 0, 10);
@@ -49,6 +47,10 @@ public class Shooter {
         }
         else {
             hoodMotor.set(0);
+        }
+
+        if (xbox.getRawButton(5)) {
+            hoodRotate(30.0);
         }
 
         SmartDashboard.putNumber("hood position", hoodPotent.get());

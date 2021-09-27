@@ -4,21 +4,19 @@ import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
-import edu.wpi.first.wpilibj.Joystick;
+//import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class Manipulator {
-    Joystick stick = new Joystick(0);
-    XboxController xbox = new XboxController(1);
+    ///private Joystick stick = new Joystick(0); not used
+    private XboxController xbox = new XboxController(1);
     
-    CANSparkMax intakeRotateMotor = new CANSparkMax(10, MotorType.kBrushless);
-    WPI_TalonSRX intakeSpinMotor = new WPI_TalonSRX(11);
+    private CANSparkMax intakeRotateMotor = new CANSparkMax(10, MotorType.kBrushless);
+    private WPI_TalonSRX intakeSpinMotor = new WPI_TalonSRX(11);
 
-    double xStickValue;
-    boolean intakeButtonToggle;
-    int rotateControlMode = 0;
-    double rotatePosition;
+    private int rotateControlMode = 0;
+    private double rotatePosition;
 
     final double LOW_GOAL_HEIGHT = 7.2;
     

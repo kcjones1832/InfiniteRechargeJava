@@ -7,28 +7,27 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class Vision {
-    final double AREA_DISTANCE_RATIO = 4.1823379;
-    final double MAX_STEER = 0.3;
-    final double STEER_K = 0.075;
-    final double DRIVE_K = 1.75;
-    final double MAX_DRIVE = 0.5;
+    //private final double AREA_DISTANCE_RATIO = 4.1823379; not used
+    private final double MAX_STEER = 0.3;
+    private final double STEER_K = 0.075;
+    private final double DRIVE_K = 1.75;
+    private final double MAX_DRIVE = 0.5;
 
-    Joystick stick = new Joystick(0);
+    private Joystick stick = new Joystick(0);
 
-    boolean imageSwitch = false;
+    private boolean imageSwitch = false;
 
-    double rawDistance;
-    double distanceFlat;
+    private double rawDistance;
 
-    double turnOutput;
-    double moveOutput;
-    double moveWant = 2.34; //0.88 trench
+    private double turnOutput;
+    private double moveOutput;
+    private double moveWant = 2.34; //0.88 trench
 
-    double targetOffsetAngle_Horizontal;
-    double targetOffsetAngle_Vertical;
-    double targetArea;
-    double targetSkew;
-    double tv; //has target
+    private double targetOffsetAngle_Horizontal;
+    private double targetOffsetAngle_Vertical;
+    private double targetArea;
+    private double targetSkew;
+    private double tv; //has target
 
     public void display() {
         NetworkTable table = NetworkTableInstance.getDefault().getTable("limelight");
